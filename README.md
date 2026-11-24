@@ -1,63 +1,143 @@
-Pandas Data Manipulation Practice
-This repository contains hands-on Python practice using Pandas and
-NumPy. The notebook works with a small employee dataset and
-demonstrates common DataFrame operations used during data cleaning and
-exploratory data analysis.
-Notebook
-  File                                          Description
-  employee-data-cleaning.ipynb   Creates an employee DataFrame and
-demonstrates column renaming,
-missing-value handling, filtering,
-aggregation, and grouping.
-Concepts Covered
-1. Importing libraries --- use Pandas and NumPy.
-2. Creating a DataFrame --- build an employee dataset with Name,
-   Age, Salary, and Department columns.
-3. Renaming columns --- use DataFrame.rename() to change column
-   names.
-4. Handling missing values --- use fillna() and mode() to fill
-   missing department values.
-5. Filtering rows --- select employees by department or salary
-   condition.
-6. Aggregation --- calculate the average salary with mean().
-7. Grouping data --- calculate average salary by department with
-   groupby().
-Dataset
-The notebook creates a sample employee dataset with six records. It
-includes employee names, ages, salaries, and departments. Some fields
-are initially missing so that missing-value handling can be practised.
-Requirements
-- Python 3
+# Pandas Data Manipulation Practice
+
+## Overview
+
+This repository contains hands-on practice of Python libraries **Pandas** and **NumPy**. It focuses on performing data manipulation, data cleaning, filtering, and statistical analysis using a sample Employee Dataset.
+
+The objective is to understand how to work with structured data using Pandas DataFrames and perform basic data analysis operations.
+
+## Technologies Used
+
+- Python
 - Pandas
 - NumPy
-- Jupyter Notebook or JupyterLab
-Install the dependencies:
+- Jupyter Notebook
+
+## Concepts Covered
+
+### 1. Importing Libraries
+
+Importing Pandas and NumPy for data manipulation and numerical operations.
+
+```python
+import pandas as pd
+import numpy as np
+```
+
+### 2. Creating a DataFrame
+
+Creating an Employee Dataset using Pandas DataFrame.
+
+The dataset contains:
+- Employee Name
+- Age
+- Salary
+- Department
+
+### 3. Renaming Columns
+
+Using the `rename()` function to modify DataFrame column names.
+
+```python
+df.rename(columns={'Name': 'Employee_Name'})
+```
+
+### 4. Handling Missing Values
+
+Handling missing values using Pandas functions such as:
+
+- `fillna()` – Replace missing values.
+- `mode()` – Find the most frequently occurring value.
+
+```python
+df['Department'].fillna(
+    df['Department'].mode()[0],
+    inplace=True
+)
+```
+
+### 5. Filtering Data
+
+Filtering employees based on specific conditions.
+
+**Employees belonging to the IT department:**
+
+```python
+df[df['Department'] == 'IT']
+```
+
+**Employees earning more than 60000:**
+
+```python
+df[df['Salary'] > 60000]
+```
+
+### 6. Statistical Operations
+
+Calculating the average salary of employees.
+
+```python
+df['Salary'].mean()
+```
+
+### 7. GroupBy Operations
+
+Grouping employees based on their department and calculating the average salary.
+
+```python
+df.groupby('Department')['Salary'].mean()
+```
+
+## Installation and Setup
+
+### Step 1: Clone the Repository
+
+```bash
+git clone <your-github-repository-url>
+```
+
+### Step 2: Navigate to the Project
+
+```bash
+cd pandas-data-manipulation-practice
+```
+
+### Step 3: Install Dependencies
+
+```bash
 pip install pandas numpy jupyter
-How to Run
-1. Clone or download this repository.
-2. Open a terminal in the repository directory.
-3. Start Jupyter:
-   jupyter notebook
-4. Open employee-data-cleaning-and-analysis.ipynb.
-5. Run the notebook cells in order.
-Example Operations
-# Employees in the IT department
-print(df[df["Department"] == "IT"])
+```
 
-# Employees earning more than 60,000
-print(df[df["Salary"] > 60000])
+### Step 4: Launch Jupyter Notebook
 
-# Overall average salary
-print(df["Salary"].mean())
+```bash
+jupyter notebook
+```
 
-# Average salary by department
-print(df.groupby("Department")["Salary"].mean())
-Learning Objective
-Practise essential Pandas DataFrame operations on a small,
-understandable dataset and build a foundation for data cleaning and
-analysis workflows.
-Note
-The notebook is a learning exercise using sample data. Review and run
-all cells before relying on saved outputs. In particular, ensure that
-the missing-value handling code matches the displayed results, and
-display filtered and grouped results explicitly.
+Open the notebook inside the `notebooks` directory and execute the cells sequentially.
+
+## Learning Objectives
+
+- Understand Pandas DataFrame operations.
+- Perform basic data cleaning.
+- Handle missing values.
+- Apply conditional filtering.
+- Perform statistical calculations.
+- Understand grouping and aggregation.
+- Develop practical data analysis skills.
+
+## Future Enhancements
+
+- Explore advanced Pandas operations.
+- Perform data visualization.
+- Work with CSV and Excel datasets.
+- Implement real-world ETL operations.
+- Perform exploratory data analysis (EDA).
+
+
+
+GitHub: <your-github-profile-url>
+
+---
+
+*This repository is part of my practical learning journey in Statistics, Python, and Data Analytics.*
