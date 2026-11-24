@@ -134,10 +134,6 @@ Open the notebook inside the `notebooks` directory and execute the cells sequent
 - Implement real-world ETL operations.
 - Perform exploratory data analysis (EDA).
 
-
-
-GitHub: <your-github-profile-url>
-
 ---
 
 *This repository is part of my practical learning journey in Statistics, Python, and Data Analytics.*
